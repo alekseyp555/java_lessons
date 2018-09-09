@@ -1,5 +1,5 @@
 package ru.stqa.pft.sandbox;
-import ru.stqa.pft.sandbox.Point;
+
 import static java.lang.Math.*;
 
 public class MyFirstProgram {
@@ -17,16 +17,12 @@ public class MyFirstProgram {
 
 		Point first = new Point(3,2);
 		Point second = new Point (2,3);
-		System.out.printf("Расстояние между двумя точками = " + distance(first,second));
+		System.out.println("Расстояние между двумя точками = " + first.distance(second));
+
 	}
 
 	public static void hello(String somebody) {
 		System.out.println("Hello, " +somebody + "!");
-	}
-
-	public static double distance(Point p1, Point p2)
-	{
-    return Math.sqrt(Math.pow(p2.GetX() - p1.GetX(),2) + Math.pow(p2.GetY() - p1.GetY(),2));
 	}
 
 }
