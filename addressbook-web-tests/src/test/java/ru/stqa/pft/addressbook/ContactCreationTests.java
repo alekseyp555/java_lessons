@@ -27,6 +27,7 @@ public class ContactCreationTests {
   }
 
   private void returnToContactPage() {
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     wd.findElement(By.linkText("home page")).click();
   }
 
@@ -61,18 +62,15 @@ public class ContactCreationTests {
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     wd.findElement(By.name("bday")).click();
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[22]")).click();
+    new Select(wd.findElement(By.name("bday"))).selectByVisibleText("20");
+    wd.findElement(By.xpath("//option[@value='20']")).click();
     wd.findElement(By.name("bmonth")).click();
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]")).click();
+    wd.findElement(By.name("bmonth")).click();
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
+    wd.findElement(By.xpath("//option[@value='January']")).click();
     wd.findElement(By.name("byear")).click();
     wd.findElement(By.name("byear")).clear();
     wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
-    wd.findElement(By.name("new_group")).click();
-    new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("test 1");
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Group:'])[1]/following::option[2]")).click();
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
   }
 
   private void gotoContactPage() {
@@ -87,7 +85,7 @@ public class ContactCreationTests {
     wd.findElement(By.name("pass")).click();
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @AfterMethod(alwaysRun = true)
