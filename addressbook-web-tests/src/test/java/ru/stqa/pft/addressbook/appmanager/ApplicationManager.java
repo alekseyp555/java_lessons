@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -23,17 +22,10 @@ public class ApplicationManager {
     sessionHlelper.login("admin", "secret");
   }
 
+  public void gotoContactPage() { wd.findElement(By.linkText("add new")).click(); }
+
   public void stop() {
     wd.quit();
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
   }
 
   public GroupHelper getGroupHelper() {
@@ -42,5 +34,14 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
   }
 }
