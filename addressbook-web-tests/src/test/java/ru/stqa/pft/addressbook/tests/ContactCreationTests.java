@@ -22,6 +22,7 @@ public class ContactCreationTests {
 
   @Test
 <<<<<<< HEAD
+<<<<<<< HEAD
   public void testContactCreation()   {
 
     app.getNavigationHelper().gotoContactPage();
@@ -83,9 +84,78 @@ public class ContactCreationTests {
 
   private void gotoContactPage() {
     wd.findElement(By.linkText("add new")).click();
+=======
+  public void testContactCreation() throws Exception {
+    gotoContactPage();
+    fillContactForm(new ContactData("name", "middle", "lastname", "newnick", "QA", "mycompany", "new address", "+7495123456789", "+7123456789", "email@my.info", "20", "January", "1900"));
+    returnToContactPage();
+  }
+
+  private void returnToContactPage() {
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    wd.findElement(By.linkText("home page")).click();
+  }
+
+  private void fillContactForm(ContactData contactData) {
+    wd.findElement(By.name("firstname")).click();
+    wd.findElement(By.name("firstname")).clear();
+    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+    wd.findElement(By.name("middlename")).clear();
+    wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
+    wd.findElement(By.name("lastname")).clear();
+    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+    wd.findElement(By.name("nickname")).clear();
+    wd.findElement(By.name("nickname")).sendKeys(contactData.getNickname());
+    wd.findElement(By.name("title")).click();
+    wd.findElement(By.name("title")).clear();
+    wd.findElement(By.name("title")).sendKeys(contactData.getTitle());
+    wd.findElement(By.name("company")).click();
+    wd.findElement(By.name("company")).clear();
+    wd.findElement(By.name("company")).sendKeys(contactData.getCompanyname());
+    wd.findElement(By.name("address")).click();
+    wd.findElement(By.name("address")).click();
+    wd.findElement(By.name("address")).clear();
+    wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
+    wd.findElement(By.name("theform")).click();
+    wd.findElement(By.name("home")).click();
+    wd.findElement(By.name("home")).clear();
+    wd.findElement(By.name("home")).sendKeys(contactData.getHomephone());
+    wd.findElement(By.name("work")).click();
+    wd.findElement(By.name("work")).clear();
+    wd.findElement(By.name("work")).sendKeys(contactData.getWorkphone());
+    wd.findElement(By.name("email")).click();
+    wd.findElement(By.name("email")).clear();
+    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+    wd.findElement(By.name("bday")).click();
+    new Select(wd.findElement(By.name("bday"))).selectByVisibleText("20");
+    wd.findElement(By.xpath("//option[@value='20']")).click();
+    wd.findElement(By.name("bmonth")).click();
+    wd.findElement(By.name("bmonth")).click();
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
+    wd.findElement(By.xpath("//option[@value='January']")).click();
+    wd.findElement(By.name("byear")).click();
+    wd.findElement(By.name("byear")).clear();
+    wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
+  }
+
+  private void gotoContactPage() {
+    wd.findElement(By.linkText("add new")).click();
+  }
+
+  private void login(String username, String password) {
+    wd.get("http://localhost/addressbook/index.php");
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).click();
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys(password);
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
   }
 >>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 
+<<<<<<< HEAD
   private void login(String username, String password) {
     wd.get("http://localhost/addressbook/index.php");
     wd.findElement(By.name("user")).click();
@@ -97,6 +167,8 @@ public class ContactCreationTests {
     wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
+=======
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();

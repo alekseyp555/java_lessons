@@ -48,6 +48,7 @@ public class GroupHelper extends HelperBase {
     click(By.name("update"));
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public void returnToContactPage() {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
@@ -91,6 +92,8 @@ public class GroupHelper extends HelperBase {
   }
 =======
 >>>>>>> parent of 7c45a2c... Добавлен тест без использования рекордера
+=======
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 =======
 >>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 }
