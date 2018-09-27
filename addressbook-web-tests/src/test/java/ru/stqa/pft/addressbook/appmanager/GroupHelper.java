@@ -41,6 +41,7 @@ public class GroupHelper extends HelperBase {
   public void selectGroup() {
     click(By.name("selected[]"));
   }
+<<<<<<< HEAD
 
   public void initGroupModification() {
     click(By.name("edit"));
@@ -90,4 +91,6 @@ public class GroupHelper extends HelperBase {
   public void selectContact() {
     wd.findElement(By.name("selected[]")).click();
   }
+=======
+>>>>>>> parent of 7c45a2c... Добавлен тест без использования рекордера
 }
