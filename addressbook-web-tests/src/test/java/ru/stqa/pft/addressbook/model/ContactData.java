@@ -11,6 +11,8 @@ public class ContactData {
   private final String homephone;
   private final String workphone;
   private final String email;
+  private final String bday;
+  private final String bmonth;
   private final String byear;
 
   public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String companyname, String address, String homephone, String workphone, String email, String bday, String bmonth, String byear) {
@@ -24,6 +26,8 @@ public class ContactData {
     this.homephone = homephone;
     this.workphone = workphone;
     this.email = email;
+    this.bday = bday;
+    this.bmonth = bmonth;
     this.byear = byear;
   }
 
@@ -65,6 +69,14 @@ public class ContactData {
 
   public String getEmail() {
     return email;
+  }
+
+  public String getBday() {
+    return bday;
+  }
+
+  public String getBmonth() {
+    return bmonth;
   }
 
   public String getByear() {
