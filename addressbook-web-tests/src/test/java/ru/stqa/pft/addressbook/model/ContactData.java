@@ -10,10 +10,7 @@ public class ContactData {
   private final String workphone;
   private final String email;
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
   private final String bday;
   private final String bmonth;
   private final String byear;
@@ -29,10 +26,7 @@ public class ContactData {
     this.workphone = workphone;
     this.email = email;
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
     this.bday = bday;
     this.bmonth = bmonth;
     this.byear = byear;
@@ -72,10 +66,7 @@ public class ContactData {
   }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
   public String getBday() {
     return bday;
   }
