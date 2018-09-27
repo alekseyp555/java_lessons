@@ -8,8 +8,8 @@ public class ApplicationManager {
 
   FirefoxDriver wd;
 
-  private NavigationHelper navigationHelper;
   private SessionHelper sessionHlelper;
+  private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
 
   public void init() {
@@ -21,6 +21,8 @@ public class ApplicationManager {
     sessionHlelper = new SessionHelper(wd);
     sessionHlelper.login("admin", "secret");
   }
+
+  public void gotoContactPage() { wd.findElement(By.linkText("add new")).click(); }
 
   public void stop() {
     wd.quit();
@@ -43,5 +45,3 @@ public class ApplicationManager {
     }
   }
 }
-
-
