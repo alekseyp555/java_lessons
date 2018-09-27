@@ -1,12 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-
   FirefoxDriver wd;
 
   private SessionHelper sessionHlelper;
@@ -25,15 +22,6 @@ public class ApplicationManager {
 
   public void stop() {
     wd.quit();
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
   }
 
   public GroupHelper getGroupHelper() {
