@@ -1,14 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
-
-  private FirefoxDriver wd;
 
   public GroupHelper(FirefoxDriver wd) {
     super(wd);
@@ -50,6 +47,7 @@ public class GroupHelper extends HelperBase {
   public void submitGroupModification() {
     click(By.name("update"));
   }
+<<<<<<< HEAD
 
   public void returnToContactPage() {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
@@ -93,4 +91,6 @@ public class GroupHelper extends HelperBase {
   }
 =======
 >>>>>>> parent of 7c45a2c... Добавлен тест без использования рекордера
+=======
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 }

@@ -9,6 +9,12 @@ public class ContactData {
   private final String homephone;
   private final String workphone;
   private final String email;
+<<<<<<< HEAD
+=======
+  private final String bday;
+  private final String bmonth;
+  private final String byear;
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 
   public ContactData(String firstname, String middlename, String lastname, String nickname, String address, String homephone, String workphone, String email) {
     this.firstname = firstname;
@@ -19,6 +25,12 @@ public class ContactData {
     this.homephone = homephone;
     this.workphone = workphone;
     this.email = email;
+<<<<<<< HEAD
+=======
+    this.bday = bday;
+    this.bmonth = bmonth;
+    this.byear = byear;
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
   }
 
   public String getFirstname() {
@@ -53,4 +65,18 @@ public class ContactData {
     return email;
   }
 
+<<<<<<< HEAD
+=======
+  public String getBday() {
+    return bday;
+  }
+
+  public String getBmonth() {
+    return bmonth;
+  }
+
+  public String getByear() {
+    return byear;
+  }
+>>>>>>> parent of 4dade17... Половина работы по выделению помощников для создания нового контакта
 }
