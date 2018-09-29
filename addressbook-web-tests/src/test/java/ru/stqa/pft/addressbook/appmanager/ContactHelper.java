@@ -14,49 +14,36 @@ public class ContactHelper {
   }
 
   public void returnToContactPage() {
-    wd.findElement(By.linkText("home page")).click();
+    click(By.linkText("home page"));
   }
 
   public void fillContactForm(ContactData contactData) {
-    wd.findElement(By.name("firstname")).click();
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-    wd.findElement(By.name("middlename")).clear();
-    wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-    wd.findElement(By.name("nickname")).clear();
-    wd.findElement(By.name("nickname")).sendKeys(contactData.getNickname());
-    wd.findElement(By.name("title")).click();
-    wd.findElement(By.name("title")).clear();
-    wd.findElement(By.name("title")).sendKeys(contactData.getTitle());
-    wd.findElement(By.name("company")).click();
-    wd.findElement(By.name("company")).clear();
-    wd.findElement(By.name("company")).sendKeys(contactData.getCompanyname());
-    wd.findElement(By.name("address")).click();
-    wd.findElement(By.name("address")).click();
-    wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    wd.findElement(By.name("theform")).click();
-    wd.findElement(By.name("home")).click();
-    wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(contactData.getHomephone());
-    wd.findElement(By.name("work")).click();
-    wd.findElement(By.name("work")).clear();
-    wd.findElement(By.name("work")).sendKeys(contactData.getWorkphone());
-    wd.findElement(By.name("email")).click();
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-    wd.findElement(By.name("bday")).click();
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("title"), contactData.getTitle());
+    type(By.name("company"), contactData.getCompanyname());
+    click(By.name("address"));
+    type(By.name("address"), contactData.getAddress());
+    click(By.name("theform"));
+    type(By.name("home"), contactData.getHomephone());
+    type(By.name("work"), contactData.getWorkphone());
+    type(By.name("email"), contactData.getEmail());
+    click(By.name("bday"));
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText("20");
-    wd.findElement(By.xpath("//option[@value='20']")).click();
-    wd.findElement(By.name("bmonth")).click();
-    wd.findElement(By.name("bmonth")).click();
+    click(By.xpath("//option[@value='20']"));
+    click(By.name("bmonth"));
+    click(By.name("bmonth"));
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("January");
-    wd.findElement(By.xpath("//option[@value='January']")).click();
-    wd.findElement(By.name("byear")).click();
-    wd.findElement(By.name("byear")).clear();
-    wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
+    click(By.xpath("//option[@value='January']"));
+    type(By.name("byear"), contactData.getByear());
+  }
+
+  private void type(By locator, String text) {
+    click(locator);
+    wd.findElement(locator).clear();
+    wd.findElement(locator).sendKeys(text);
   }
 
   public void acceptDeleteContact() {
@@ -64,15 +51,19 @@ public class ContactHelper {
   }
 
   public void deleteSelectedContact() {
-    wd.findElement(By.xpath("//input[@value='Delete']")).click();
+    click(By.xpath("//input[@value='Delete']"));
   }
 
   public void selectContact() {
-    wd.findElement(By.name("selected[]")).click();
+    click(By.name("selected[]"));
   }
 
   public void submitContactForm() {
     wd.get("http://localhost/addressbook/edit.php");
-    wd.findElement(By.name("submit")).click();
+    click(By.name("submit"));
+  }
+
+  private void click(By locator) {
+    wd.findElement(locator).click();
   }
 }
