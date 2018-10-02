@@ -10,8 +10,11 @@ public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) { super(wd);  }
 
-  public void returnToContactPage() {
-    click(By.linkText("home page"));
+  public void gotoHomePage() {
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("home"));
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -20,7 +23,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("nickname"), contactData.getNickname());
     type(By.name("title"), contactData.getTitle());
-    click(By.name("address"));
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomephone());
 
@@ -49,10 +51,7 @@ public class ContactHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
-  public void submitContactForm() {
-    wd.get("http://localhost/addressbook/edit.php");
-    click(By.name("submit"));
-  }
+  public void submitContactForm() { click(By.name("submit")); }
 
   public void initContactModification() {
     click(By.xpath("//img[@alt='Edit']"));
@@ -64,5 +63,4 @@ public class ContactHelper extends HelperBase {
 
   public void click(By locator) {
     wd.findElement(locator).click();
-  }
-}
+  }}
