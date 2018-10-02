@@ -6,30 +6,20 @@ public class ContactData {
   private final String lastname;
   private final String nickname;
   private final String title;
-  //private final String companyname;
   private final String address;
   private final String homephone;
-  private final String workphone;
-  //private final String email;
- // private final String bday;
- // private final String bmonth;
-  // private final String byear;
-   public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String address, String homephone, String workphone) {
-   //public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String companyname, String address, String homephone, String workphone, String email, String bday, String bmonth, String byear) {
+  private String group;
+
+    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String address, String homephone, String group) {
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
     this.nickname = nickname;
     this.title = title;
-    //this.companyname = companyname;
     this.address = address;
     this.homephone = homephone;
-    this.workphone = workphone;
-    //this.email = email;
-    //this.bday = bday;
-    //this.bmonth = bmonth;
-    //this.byear = byear;
-  }
+    this.group = group;
+   }
 
   public String getFirstname() {
     return firstname;
@@ -51,10 +41,6 @@ public class ContactData {
     return title;
   }
 
- // public String getCompanyname() {
-  //  return companyname;
-  //}
-
   public String getAddress() {
     return address;
   }
@@ -63,23 +49,7 @@ public class ContactData {
     return homephone;
   }
 
-  public String getWorkphone() {
-    return workphone;
+  public String getGroup() {
+    return group;
   }
-
-  //public String getEmail() {
-   // return email;
-  //}
-
-  //public String getBday() {
-    //return bday;
-  //}
-
-  //public String getBmonth() {
-    //return bmonth;
-  //}
-
-  //public String getByear() {
-    //return byear;
-  //}
 }
