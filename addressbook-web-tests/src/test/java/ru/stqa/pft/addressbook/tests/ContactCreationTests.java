@@ -16,8 +16,5 @@ public class ContactCreationTests extends TestBase {
     app.getContactHelper().createContact(new ContactData("name", "middlename", "lastname", "newnick", "QA","new address", "+7495123456789",  null));
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(), before.size() + 1);
-
-    before.remove(before.size() - 1);
-    Assert.assertEquals(before.size(), after.size());
   }
 }
