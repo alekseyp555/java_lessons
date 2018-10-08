@@ -17,9 +17,11 @@ public class NavigationHelper extends  HelperBase{
     }
     click(By.linkText("groups"));
   }
-
   public void gotoAddContactPage() {
+    if (isElementPresent(By.name("searchstring"))
+    && isElementPresent(By.tagName("search-az"))) {
+      return;
+    }
     click(By.linkText("add new"));
   }
-
 }
