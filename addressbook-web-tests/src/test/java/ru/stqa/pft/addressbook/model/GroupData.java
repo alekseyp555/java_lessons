@@ -10,7 +10,7 @@ public class GroupData {
     return id;
   }
 
-  public void setId(int id) {
+  public void getId(int id) {
     this.id = id;
   }
 
