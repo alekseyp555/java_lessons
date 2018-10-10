@@ -1,47 +1,63 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-
-  private final String title;
-  private final String address;
-  private final String homephone;
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String middlename;
+  private String lastname;
+  private String nickname;
+  private String title;
+  private String address;
+  private String homephone;
   private String group;
 
-    public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String title, String address, String homephone, String group) {
+  public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.title = title;
-    this.address = address;
-    this.homephone = homephone;
-    this.group = group;
-    this.id = id;
-   }
+    return this;
+  }
 
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String address, String homephone, String group) {
-    this.firstname = firstname;
+  public ContactData withMiddlename(String middlename) {
     this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
     this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
     this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withTitle(String title) {
     this.title = title;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
     this.address = address;
+    return this;
+  }
+
+  public ContactData withHomephone(String homephone) {
     this.homephone = homephone;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
     this.group = group;
-    this.id = Integer.MAX_VALUE;
+    return this;
   }
 
   public int getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
   }
 
   @Override
