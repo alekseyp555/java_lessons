@@ -24,14 +24,14 @@ public class ContactModificationTests extends TestBase {
     }
   }
 
-  @Test (enabled = false)
+  @Test ()
   public void testContactModification() {
 
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData()
-            .withId(modifiedContact.getId()).withFirstname("name").withMiddlename("middle").withLastname("lastname")
-            .withNickname("newnick").withTitle("QA").withAddress("new address").withHomephone( "+7495123456789").withGroup(null);
+            .withId(modifiedContact.getId()).withFirstname("name").withLastname("lastname")
+            .withAddress("new address").withHomephone( "+7495123456789").withEmail("test@test.com").withGroup(null);
     app.contact().modify(contact);
     Contacts after = app.contact().all();
     assertEquals(after.size(), before.size());

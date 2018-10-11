@@ -3,45 +3,28 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) { super(wd);  }
 
   public void gotoHomePage() {
-    if (isElementPresent(By.id("maintable"))) {
-      return;
-    }
     click(By.linkText("home"));
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
+  public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("nickname"), contactData.getNickname());
-    type(By.name("title"), contactData.getTitle());
     type(By.name("address"), contactData.getAddress());
+    type(By.name("email"), contactData.getEmail());
     type(By.name("home"), contactData.getHomephone());
-
-    if (creation) {
-      new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new group")));
-    }
   }
 
   public void type(By locator, String text) {
-    click(locator);
+    wd.findElement(locator).click();
     wd.findElement(locator).clear();
     wd.findElement(locator).sendKeys(text);
   }
@@ -55,7 +38,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContactById(int id) {
-    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    wd.findElement(By.xpath("//input[@value='" + id + "']/../../td/a/img[@title='Edit']")).click();
   }
 
   public void submitContactForm() { click(By.name("submit")); }
@@ -73,16 +56,19 @@ public class ContactHelper extends HelperBase {
   }
 
   public void create(ContactData contact) {
-    fillContactForm(new ContactData().withFirstname("name").withMiddlename("middle").withLastname("lastname")
-            .withNickname("newnick").withTitle("QA").withAddress("new address").withHomephone("+7495123456789").withGroup("test1"),true);
+    initContactCreation();
+    fillContactForm(contact);
     submitContactForm();
     gotoHomePage();
   }
 
+  public void initContactCreation() {
+    click(By.name("firstname"));
+  }
+
   public void modify(ContactData contact) {
     selectContactById(contact.getId());
-    initContactModification();
-    fillContactForm(contact, false);
+    fillContactForm(contact);
     submitContactModification();
     gotoHomePage();
   }
@@ -103,14 +89,24 @@ public class ContactHelper extends HelperBase {
   }
 
   public Contacts all() {
-    Contacts contactslist = new Contacts();
-    List<WebElement> elements = wd.findElements(By.cssSelector("td center"));
+    Contacts contacts = new Contacts();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+
     for (WebElement element : elements) {
-      String name = element.getText();
+      List<WebElement> tr = element.findElements(By.tagName("td"));
+
+      String lastname = tr.get(1).getText();
+      String name = tr.get(2).getText();
+      String address = tr.get(3).getText();
+      String email = tr.get(4).getText();
+      String homephone = tr.get(5).getText();
+      String group = null;
+
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contactslist.add(new ContactData().withId(id).withFirstname("name").withMiddlename(null).withLastname("lastname"));
+      contacts.add(new ContactData().withId(id).withFirstname(name)
+              .withLastname(lastname).withAddress(address).withHomephone(homephone).withEmail(email).withGroup(group));
     }
-    return contactslist;
+    return contacts;
   }
 
 }
