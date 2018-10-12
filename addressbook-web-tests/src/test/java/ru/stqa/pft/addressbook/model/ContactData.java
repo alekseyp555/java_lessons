@@ -8,6 +8,18 @@ public class ContactData {
   private String homephone;
   private String group;
   private String email;
+  public String mobile;
+  public String workphone;
+
+  public ContactData withWorkPhone (String workPhone) {
+    this.workphone - workPhone;
+    return this;
+  }
+
+  public ContactData withMobile (String mobile) {
+    this.mobile = mobile;
+    return this;
+  }
 
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
@@ -82,6 +94,10 @@ public class ContactData {
     return group;
   }
 
+  public String getMobile() {return mobile;}
+
+  public String getWorkphone() {return workphone;}
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -109,4 +125,5 @@ public class ContactData {
     result = 31 * result + (email != null ? email.hashCode() : 0);
     return result;
   }
+
 }

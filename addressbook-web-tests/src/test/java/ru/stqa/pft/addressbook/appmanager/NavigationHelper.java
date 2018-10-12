@@ -20,4 +20,10 @@ public class NavigationHelper extends  HelperBase{
   public void ContactPage() {
     click(By.linkText("add new"));
   }
+  public void HomePage() {
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("home"));
+  }
 }
