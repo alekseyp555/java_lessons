@@ -5,14 +5,51 @@ public class ContactData {
   private String firstname;
   private String lastname;
   private String address;
+  private String address2;
   private String homephone;
   private String group;
   private String email;
-  public String mobile;
-  public String workphone;
+  private String mobile;
+  private String workphone;
+  private String email1;
+  private String email2;
+  private String email3;
+  private String allPhones;
+  private String allEmails;
+
+
+  public ContactData setAddress2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+  public ContactData withhAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withEmail1(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
 
   public ContactData withWorkPhone (String workPhone) {
-    this.workphone - workPhone;
+    this.workphone = workPhone;
     return this;
   }
 
@@ -97,6 +134,20 @@ public class ContactData {
   public String getMobile() {return mobile;}
 
   public String getWorkphone() {return workphone;}
+
+  public String getEmail1() {return  email1;}
+
+  public String getEmail2() {return  email2;}
+
+  public String getEmail3() {return  email3;}
+
+  public String getAllPhones() {return  allPhones;}
+
+  public String getAllEmails() {return  allEmails;}
+
+  public String getAddress2() {
+    return address2;
+  }
 
   @Override
   public boolean equals(Object o) {
