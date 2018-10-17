@@ -18,7 +18,8 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
-    attach(By.name("photo"), contactData.getPhoto());
+    type(By.name("address"), contactData.getAddress());
+    //attach(By.name("photo"), contactData.getPhoto());
   }
 
   public void type(By locator, String text) {
