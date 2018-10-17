@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.generators;
 
 import ru.stqa.pft.addressbook.model.ContactData;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
