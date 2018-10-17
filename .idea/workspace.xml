@@ -78,13 +78,13 @@
         <counts>
           <entry key="dummy" value="23" />
           <entry key="gradle" value="72" />
-          <entry key="java" value="17894" />
+          <entry key="java" value="18114" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="72" />
-          <entry key="JAVA" value="17894" />
+          <entry key="JAVA" value="18114" />
           <entry key="PLAIN_TEXT" value="23" />
         </counts>
       </usages-collector>
@@ -119,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupDataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="438">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#579#590#0" expanded="true" />
@@ -132,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="136">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1050#1063#0" expanded="true" />
@@ -165,7 +165,11 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/resources/groups.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -860,8 +864,8 @@
         <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactAdressTests.java" />
         <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java" />
         <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java" />
-        <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java" />
         <option value="$PROJECT_DIR$/addressbook-web-tests/build.gradle" />
+        <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java" />
         <option value="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupDataGenerator.java" />
       </list>
     </option>
@@ -1076,7 +1080,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539799769436" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539800483048" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/sandbox/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/addressbook-web-tests" />
@@ -1110,7 +1114,7 @@
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests_test" />
-      <option name="PROGRAM_PARAMETERS" value="10 src/test/resources/contacts.csv" />
+      <option name="PROGRAM_PARAMETERS" value="-c 15 -f src/test/resources/contacts.csv" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook-web-tests" />
       <extension name="coverage">
         <pattern>
@@ -1212,8 +1216,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="Application.ContactDataGenerator" />
+        <item itemvalue="Application.GroupDataGenerator" />
         <item itemvalue="TestNG.ContactCreationTests" />
         <item itemvalue="TestNG.ContactAdressTests" />
         <item itemvalue="TestNG.ContactCreationTests.testContactCreation" />
@@ -1278,7 +1282,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21015424" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21015424" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1287,7 +1291,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.83804625" visible="true" weight="0.33243608" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.83804625" visible="true" weight="0.33243608" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49678662" weight="0.39838493" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1791,16 +1795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/resources/contacts.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/resources/groups.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/ContactData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1812,17 +1806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1050#1063#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addressbook-web-tests/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1830,13 +1813,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/resources/contacts.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/resources/groups.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupDataGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="438">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#579#590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactDataGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1050#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
