@@ -3,37 +3,78 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+  @Id
+  @Column(name = "id")
   @XStreamOmitField
   private int id = Integer.MAX_VALUE;
   @Expose
+  @Column(name = "firstname")
   private String firstname;
+
   @Expose
+  @Column(name = "lastname")
   private String lastname;
-  @Expose
-  private String address;
-  private String address2;
-  private String homephone;
+
+  @Transient
   private String group;
+
+  @Expose
+  @Column(name = "address")
+  @Type(type = "text")
+  private String address;
+
+  @Column(name = "address2")
+  @Type(type = "text")
+  private String address2;
+
+  @Column(name = "home")
+  @Type(type = "text")
+  private String homephone;
+
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobile;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String workphone;
-  private String email1;
+
+  //private String email1;
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
+
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
+
+  @Transient
   private String allPhones;
+  @Transient
   private String allEmails;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -154,7 +195,7 @@ public class ContactData {
 
   public String getWorkphone() {return workphone;}
 
-  public String getEmail1() {return  email1;}
+  //public String getEmail1() {return  email1;}
 
   public String getEmail2() {return  email2;}
 
