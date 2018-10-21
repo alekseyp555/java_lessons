@@ -54,7 +54,26 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
-  @Test (dataProvider = "validGroupsFromJson")
+  @Test
+  public void testContactCreation() throws Exception {
+    Contacts before = app.db().contacts();
+    File photo = new File("src/test/resources/test.png");
+    ContactData contact = new ContactData()
+            .withFirstname("Vasya").withLastname("Pupkin")
+           .withAddress("new address").withHomephone("+7945123456789").withGroup("Test1").withPhoto(photo);
+    app.contact().create(contact, true);
+    //app.contact().fillContactForm(
+    //        new ContactData().withFirstname("Vasya").withLastname("Pechkin").withPhoto(photo));
+    //app.contact().submitContactForm();
+    //app.contact().gotoHomePage();
+    //app.contact().create(contact);
+    //assertThat(app.contact().count(), equalTo(before.size() + 1));
+    Contacts after = app.db().contacts();
+    //assertThat(after, equalTo(
+     //       before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  }
+
+   @Test (dataProvider = "validGroupsFromJson")
   public void testContactCreation(ContactData contact)  {
     //Contacts before = (Contacts) app.contact().all();
     app.goTo().ContactPage();
@@ -62,7 +81,7 @@ public class ContactCreationTests extends TestBase {
     //File photo = new File("src/test/resources/test.png");
     //ContactData contact = new ContactData().withFirstname("Vasya").withLastname("Pechkin")
      //       .withPhoto(photo);
-    app.contact().create(contact);
+    app.contact().create(contact, true);
     //app.contact().fillContactForm(
     //        new ContactData().withFirstname("Vasya").withLastname("Pechkin").withPhoto(photo));
     //app.contact().submitContactForm();
@@ -79,7 +98,7 @@ public class ContactCreationTests extends TestBase {
     Contacts before = (Contacts) app.contact().all();
     app.goTo().ContactPage();
     ContactData contact = new ContactData().withFirstname("Vasya'");
-    app.contact().create(contact);
+    app.contact().create(contact, true);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = (Contacts) app.contact().all();
     assertThat(after, equalTo(before));

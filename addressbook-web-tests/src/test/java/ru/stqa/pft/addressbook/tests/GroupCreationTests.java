@@ -22,8 +22,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationTests extends TestBase {
 
-
-
   @DataProvider
   public Iterator<Object[]> validGroupsFromXml () throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
