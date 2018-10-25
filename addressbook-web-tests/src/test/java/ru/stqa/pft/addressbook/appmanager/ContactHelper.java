@@ -22,7 +22,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomephone());
-    attach(By.name("photo"), contactData.getPhoto());
+    //attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -83,17 +83,20 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    selectContactById(contact.getId());
+    editContactById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     gotoHomePage();
+  }
+
+  private void editContactById(int id) {
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click(); // выбор элемента по индексу
   }
 
   public void delete(ContactData Contact) {
     selectContactById(Contact.getId());
     deleteSelectedContact();
     acceptDeleteContact();
-    contactCache = null;
     gotoHomePage();
   }
 
@@ -132,7 +135,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public ContactData infoFromEditForm(ContactData contact) {
-    selectContactById(contact.getId());
+    editContactById(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getAttribute("value");

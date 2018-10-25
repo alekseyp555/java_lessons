@@ -7,6 +7,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -56,19 +58,16 @@ public class ContactCreationTests extends TestBase {
 
   @Test
   public void testContactCreation() throws Exception {
-    Contacts before = app.db().contacts();
+    Groups groups = app.db().groups();
+    Contacts before = app.contact().all();
     File photo = new File("src/test/resources/test.png");
     ContactData contact = new ContactData()
             .withFirstname("Vasya").withLastname("Pupkin")
-           .withAddress("new address").withHomephone("+7945123456789").withGroup("Test1").withPhoto(photo);
+           .withAddress("new address").withHomephone("+7945123456789").withGroup("Test1")
+            .withGroup("Test1").withPhoto(photo);
     app.contact().create(contact, true);
-    //app.contact().fillContactForm(
-    //        new ContactData().withFirstname("Vasya").withLastname("Pechkin").withPhoto(photo));
-    //app.contact().submitContactForm();
-    //app.contact().gotoHomePage();
-    //app.contact().create(contact);
-    //assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.db().contacts();
+    //assertThat(app.contact().count(), equalTo(before.size() + 1));
     //assertThat(after, equalTo(
      //       before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
