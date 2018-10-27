@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.Groups;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -59,13 +58,13 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testContactCreation() throws Exception {
     Groups groups = app.db().groups();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/test.png");
     ContactData contact = new ContactData()
             .withFirstname("Vasya").withLastname("Pupkin")
-           .withAddress("new address").withHomephone("+7945123456789").withGroup("Test1")
-            .withGroup("Test1").withPhoto(photo);
-    app.contact().create(contact, true);
+           .withAddress("new address").withHomephone("+7945123456789").withPhoto(photo)
+            .inGroup(groups.iterator().next());
+    app.contact().create(contact);
     Contacts after = app.db().contacts();
     //assertThat(app.contact().count(), equalTo(before.size() + 1));
     //assertThat(after, equalTo(
@@ -80,7 +79,7 @@ public class ContactCreationTests extends TestBase {
     //File photo = new File("src/test/resources/test.png");
     //ContactData contact = new ContactData().withFirstname("Vasya").withLastname("Pechkin")
      //       .withPhoto(photo);
-    app.contact().create(contact, true);
+     app.contact().create(contact);
     //app.contact().fillContactForm(
     //        new ContactData().withFirstname("Vasya").withLastname("Pechkin").withPhoto(photo));
     //app.contact().submitContactForm();
@@ -97,7 +96,7 @@ public class ContactCreationTests extends TestBase {
     Contacts before = (Contacts) app.contact().all();
     app.goTo().ContactPage();
     ContactData contact = new ContactData().withFirstname("Vasya'");
-    app.contact().create(contact, true);
+    app.contact().create(contact);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = (Contacts) app.contact().all();
     assertThat(after, equalTo(before));

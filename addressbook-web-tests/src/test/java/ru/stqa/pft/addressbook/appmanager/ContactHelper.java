@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -25,7 +27,10 @@ public class ContactHelper extends HelperBase {
     //attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if(contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -46,7 +51,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContactById(int id) {
-    wd.findElement(By.xpath("//input[@value='" + id + "']/../../td/a/img[@title='Edit']")).click();
+    wd.findElement(By.cssSelector("input[value = '" + id + "']")).click();
   }
 
   public void submitContactForm() { click(By.name("submit")); }
@@ -71,12 +76,19 @@ public class ContactHelper extends HelperBase {
     wd.findElement(locator).click();
   }
 
-  public void create(ContactData contact, boolean group) {
+  public void create(ContactData ContactData) {
+    initContactCreation();
+    fillContactForm(ContactData, true);
+    submitContactForm();
+    gotoHomePage();
+  }
+
+  /*public void create(ContactData contact, boolean group) {
     initContactCreation();
     fillContactForm(contact, group);
     submitContactForm();
     gotoHomePage();
-  }
+  }*/
 
   public void initContactCreation() {
     click(By.linkText("add new"));
@@ -90,7 +102,7 @@ public class ContactHelper extends HelperBase {
   }
 
   private void editContactById(int id) {
-    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click(); // выбор элемента по индексу
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
   }
 
   public void delete(ContactData Contact) {
@@ -151,4 +163,23 @@ public class ContactHelper extends HelperBase {
             .withHomephone(home).withWorkPhone(work).withMobile(mobile)
             .withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address);
   }
+
+  public void addToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(group.getId()));
+    click(By.name("add"));
+    gotoHomePage();
+  }
+
+  public void selectGroupFromList(String group, String element) {
+    new Select(wd.findElement(By.name(element))).selectByVisibleText(group);
+  }
+
+  public void removeFromGroup (ContactData contact, GroupData group) {
+    selectGroupFromList("[all]", "group");
+    selectGroupFromList(group.getName(), "group");
+    selectContactById(contact.getId());
+    click(By.name("remove"));
+  }
+
 }
