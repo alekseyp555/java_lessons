@@ -32,11 +32,11 @@ public class HttpSession {
     params.add(new BasicNameValuePair("return", "index.php"));
     post.setEntity(new UrlEncodedFormEntity(params));
     CloseableHttpResponse response = httpclient.execute(post);
-    String body = geTextFrom(response);
+    String body = getTextFrom(response);
     return body.contains(String.format("<span class>=\"italic\">%s</span>", username));
   }
 
-  private String geTextFrom(CloseableHttpResponse response) throws IOException {
+  private String getTextFrom(CloseableHttpResponse response) throws IOException {
     try {
       return EntityUtils.toString(response.getEntity());
     } finally {
@@ -47,7 +47,7 @@ public class HttpSession {
   public boolean isLoggeIndAs (String username) throws IOException {
     HttpGet get = new HttpGet(app.getProperty("web.baserUrl") + "/index.php");
     CloseableHttpResponse response = httpclient.execute(get);
-    String body = geTextFrom(response);
+    String body = getTextFrom(response);
     return body.contains(String.format("<span class>=\"italic\">%s</span>", username));
   }
 
