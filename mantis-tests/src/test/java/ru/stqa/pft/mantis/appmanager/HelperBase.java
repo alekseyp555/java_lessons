@@ -2,7 +2,6 @@ package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
