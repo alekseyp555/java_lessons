@@ -10,10 +10,10 @@ public class UserHelper extends HelperBase {
     super(app);
   }
 
-  public UserData getUserFromBD() {
-    Users users = app.db().getUsersFromBD();
-    return users.stream().filter((u) -> u.getAccessLevel() != 90).iterator().next();
-  }
+ // public UserData getUserFromBD() {
+ //   Users users = app.db().getUsersFromBD();
+ //   return users.stream().filter((u) -> u.getAccessLevel() != 90).iterator().next();
+ // }
 
   public void resetPassword() {
     click(By.cssSelector("input[value=\"Reset Password\"]"));
