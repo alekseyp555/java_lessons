@@ -31,12 +31,12 @@ public class ResetUserPassword extends TestBase {
     app.goTo().manageUser();
     app.user().reset(username);
     List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
-    String conformationLink = findConformationLink(mailMessages, email);
+    String conformationLink = findConfirmationLink(mailMessages, email);
     app.user().confirmade(conformationLink, newPassword);
     assertTrue(app.newSession().login(username, newPassword));
   }
 
-  private String findConformationLink(List<MailMessage> mailMessages, String email) {
+  private String findConfirmationLink(List<MailMessage> mailMessages, String email) {
     MailMessage mailMessage = mailMessages.stream().filter((m) -> m.to.equals(email)).findAny().get();
     VerbalExpression regex = VerbalExpression.regex().find("http://").nonSpace().oneOrMore().build();
     return regex.getText(mailMessage.text);
