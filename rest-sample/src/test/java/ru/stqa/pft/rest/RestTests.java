@@ -34,7 +34,7 @@ public class RestTests extends TestBase {
   }
 
   private Set<Issue> getIssues() throws IOException {
-    String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues.json?limit=1000")).returnContent().asString();
+    String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues.json?limit=100")).returnContent().asString();
     System.out.println(json);
 
     JsonElement parsed = new JsonParser().parse(json);
@@ -45,7 +45,7 @@ public class RestTests extends TestBase {
   }
 
   private int createIssue(Issue newIssue) throws IOException {
-    String json = getExecutor().execute(Request.Post("http://bugify.stqa.ru/api/issues.json?limit=1000")
+    String json = getExecutor().execute(Request.Post("http://bugify.stqa.ru/api/issues.json?limit=100")
             .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject()),
                     new BasicNameValuePair("description", newIssue.getDescription())))
             .returnContent().asString();
