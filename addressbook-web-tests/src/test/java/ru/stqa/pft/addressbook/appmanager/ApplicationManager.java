@@ -46,12 +46,12 @@ public class ApplicationManager {
         wd = new ChromeDriver();
       } else if (browser.equals(BrowserType.IE)) {
         wd = new InternetExplorerDriver();
-      } else {
-        DesiredCapabilities capabilites = new DesiredCapabilities();
-        capabilites.setBrowserName(browser);
-        capabilites.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
-        wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilites);
       }
+    } else {
+      DesiredCapabilities capabilities = new DesiredCapabilities();
+      capabilities.setBrowserName(browser);
+      capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
+      wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseURL"));
